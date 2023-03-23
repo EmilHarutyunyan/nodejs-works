@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "text": "React",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "text": "Vue",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "text": "Angular",
+    "isCompleted": false
+  },
+  {
+    "id": 4,
+    "text": "Next.js",
+    "isCompleted": false
+  }
+]
