@@ -18,5 +18,15 @@
     "id": 4,
     "text": "Next.js",
     "isCompleted": false
+  },
+  {
+    "id": 0.9404250584866436,
+    "text": "Nest.js",
+    "isCompleted": false
+  },
+  {
+    "id": 0.147691741099359,
+    "text": "Django",
+    "isCompleted": false
   }
 ]
