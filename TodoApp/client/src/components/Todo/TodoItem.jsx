@@ -1,4 +1,5 @@
-function TodoItem({ todo, onChange, onDelete }) {
+function TodoItem({ todo, onChange, onDelete,onEdit }) {
+
   return (
     <div>
       <label htmlFor="#">
@@ -9,15 +10,17 @@ function TodoItem({ todo, onChange, onDelete }) {
             // e.target.checked
             onChange({
               ...todo,
-              isCompleted: e.target.checked
+              isCompleted: e.target.checked,
             });
           }}
         />
         {todo.text}
+        <button onClick={() => onEdit(todo)}>Edit</button>
         <button
           onClick={() => {
             onDelete(todo);
-          }}>
+          }}
+        >
           x
         </button>
       </label>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import TodoFooter from "./components/Todo/TodoFooter";
 import TodoForm from "./components/Todo/TodoForm";
-import TodoLIst from "./components/Todo/TodoList";
+import TodoList from "./components/Todo/TodoList";
 
 
 function App() {
   const [todos, setTodos] = useState(null);
+  const [editTodo, setEditTodo] = useState({})
 
   useEffect(() => {
     let subscribed = true;
@@ -33,6 +34,29 @@ function App() {
     });
   };
 
+  const handleEdit = async (todo) => {
+   const res =  await fetch("http://localhost:3001/todos", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(todo),
+    });
+    const data = await res.json()
+    console.log('data :', data);
+    setTodos(data)
+    setEditTodo({})
+  }
+  const handleDelete = async (todo) => {
+    const res = await fetch("http://localhost:3001/todos", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(todo),
+    });
+    const data = await res.json();
+    console.log("data :", data);
+    setTodos(data);
+    setEditTodo({});
+  };
+
   if (!todos) {
     return (
       <div id="app">
@@ -43,44 +67,46 @@ function App() {
     );
   }
   return (
-      <main>
-        <>
-          <TodoForm
-            onAdd={(text) => {
-              setTodos([
-                ...todos,
-                {
-                  id: Math.random(),
-                  text: text,
-                  isCompleted: false,
-                },
-              ]);
-            }}
-          />
-          <TodoLIst
-            todos={todos && todos}
-            onDelete={(todo) => {
-              setTodos(todos.filter((t) => t.id !== todo.id));
-            }}
-            onChange={(newTodo) => {
-              setTodos(
-                todos.map((todo) => {
-                  if (todo.id === newTodo.id) {
-                    return newTodo;
-                  }
-                  return todo;
-                })
-              );
-            }}
-          />
-          <TodoFooter
-            todos={todos && todos}
-            onClearcompleted={() => {
-              setTodos(todos.filter((todo) => !todo.isCompleted));
-            }}
-          />
-        </>
-      </main>
+    <main>
+      <>
+        <TodoForm
+          onAdd={(text) => {
+            setTodos([
+              ...todos,
+              {
+                id: Math.random(),
+                text: text,
+                isCompleted: false,
+              },
+            ]);
+          }}
+          onEditSave={(todo) => {
+          
+            handleEdit(todo);
+          }}
+          onCancelEdit={() => setEditTodo({})}
+          editTodo={editTodo}
+        />
+        <TodoList
+          todos={todos && todos}
+          onDelete={(todo) => {
+            handleDelete(todo);
+          }}
+          onChange={(newTodo) => {
+            handleEdit(newTodo)
+          }}
+          onEdit={(todo) => {
+            setEditTodo(todo);
+          }}
+        />
+        <TodoFooter
+          todos={todos && todos}
+          onClearcompleted={() => {
+            setTodos(todos.filter((todo) => !todo.isCompleted));
+          }}
+        />
+      </>
+    </main>
   );
 }
 

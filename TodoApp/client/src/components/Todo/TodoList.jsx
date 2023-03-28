@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-function TodoLIst({ todos, onChange, onDelete }) {
+function TodoLIst({ todos, onChange, onDelete,onEdit }) {
   return (
     <div>
       {todos?.map((todo) => {
@@ -10,6 +10,7 @@ function TodoLIst({ todos, onChange, onDelete }) {
             todo={todo}
             onChange={onChange}
             onDelete={onDelete}
+            onEdit={onEdit}
           />
         );
       })}
