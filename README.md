@@ -8,7 +8,7 @@ The following applications are included in this repository:
 
 - RealTimeChat: A real-time chat application using Socket.io and Node.js.
 - TodoApp: A simple todo list application built with Express and MongoDB.
-- APIWeather: An application that fetches weather data using an API and displays it to the user.
+- WeatherApp: An application that fetches weather data using an API and displays it to the user.
 
 ## Getting Started
 
