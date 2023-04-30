@@ -1,0 +1,1 @@
+export const API_ENDPOINT = 'https://www.fishwatch.gov/api/species/'
