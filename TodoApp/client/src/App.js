@@ -41,7 +41,6 @@ function App() {
       body: JSON.stringify(todo),
     });
     const data = await res.json()
-    console.log('data :', data);
     setTodos(data)
     setEditTodo({})
   }

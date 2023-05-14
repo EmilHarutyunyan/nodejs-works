@@ -9,11 +9,10 @@ The following applications are included in this repository:
 - RealTimeChat: A real-time chat application using Socket.io and Node.js.
 - TodoApp: A simple todo list application built with Express and MongoDB.
 - WeatherApp: An application that fetches weather data using an API and displays it to the user.
+- FishRedisApp: An application that retrieves data from the FishWatch API.
+
 
 ## Getting Started
 
 To get started with any of the applications in this repository, follow the instructions in the README.md file in the respective application directory. You will need Node.js and any required dependencies installed on your machine.
 
-## Contributing
-
-If you would like to contribute to this repository, please follow the guidelines in the CONTRIBUTING.md file. Contributions of all kinds, including bug fixes, feature additions, and documentation improvements, are welcome.

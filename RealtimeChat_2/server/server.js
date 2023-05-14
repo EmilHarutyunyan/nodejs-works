@@ -3,7 +3,7 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 import axios from "axios";
 import { PORT, API_ENDPOINT, PRIVATE_KEY } from "./config/config.js";
-console.log('PORT :', PORT);
+
 
 const app = express();
 app.use(express.json());

@@ -4,15 +4,6 @@ const AuthPage = ({ onAuth }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const { value } = e.target[0];
-    // try {
-    //   const res = await axios.post(`http://localhost/5000/authenticate/`, {
-    //     username: value,
-    //   });
-    //   onAuth({ ...res.data, secret: value });
-      
-    // } catch (error) {
-    //   console.log("error",error);
-    // }
     axios
       .post("http://localhost:5000/authenticate", { username: value })
       .then((r) => onAuth({ ...r.data, secret: value }))
