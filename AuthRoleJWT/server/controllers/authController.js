@@ -4,13 +4,15 @@ import bcrypt from "bcrypt";
 import User from "../models/userModel.js";
 import Role from "../models/roleModel.js";
 import generateTokens from "../utils/generateTokens.js";
-import verifyRefreshToken from "../utils/verifyRefreshToken.js";
 import jwt from "jsonwebtoken";
 import UserToken from "../models/userTokenModel.js";
 
 const register = async (req, res) => {
   try {
-    const hashPassword = bcrypt.hashSync(req.body.password, 8);
+    const hashPassword = bcrypt.hashSync(
+      req.body.password,
+      (process.env.HASH_PASSWORD)
+    );
     const roles = await Role.find({
       name: { $in: req.body.roles || ["user"] },
     });
