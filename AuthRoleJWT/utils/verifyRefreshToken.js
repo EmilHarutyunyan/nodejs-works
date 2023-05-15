@@ -13,7 +13,6 @@ const verifyRefreshToken = async (refreshToken) => {
 
   try {
     let tokenDetails = jwt.verify(refreshToken, privateKey)
-    console.log('tokenDetails :', tokenDetails);
     return tokenDetails
   } catch (err) {
     throw { message: "Invalid refresh token" };

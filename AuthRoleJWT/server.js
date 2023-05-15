@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 connectDB()
-
 app.use('/api/v1',authRouter)
 
 // set port, listen for requests
