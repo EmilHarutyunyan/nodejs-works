@@ -1,3 +1,12 @@
+# Installation guide
+
+## Setup Server
+
+1. cd  /server
+2. npm install
+3. npm dev
+
+
 # AuthRoleJWT
 
 AuthRoleJWT is a simple authentication system that uses JSON Web Tokens (JWT) to authenticate users and grant them access to certain endpoints based on their assigned roles.
