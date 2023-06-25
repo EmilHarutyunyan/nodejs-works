@@ -10,7 +10,8 @@ The following applications are included in this repository:
 - TodoApp: A simple todo list application built with Express and MongoDB.
 - WeatherApp: An application that fetches weather data using an API and displays it to the user.
 - FishRedisApp: An application that retrieves data from the FishWatch API.
-
+- AuthRoleJWT: An application that implements role-based authentication using JSON Web Tokens (JWT).
+- SungptBot: A Telegram bot powered by OpenAI's GPT model, created using Telegraf framework.
 
 ## Getting Started
 
